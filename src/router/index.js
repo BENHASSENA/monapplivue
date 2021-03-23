@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Aide from '../views/Aide.vue'
 import Moncompte from '../views/Moncompte.vue'
+import Inscription from '../views/Inscription.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,12 @@ const routes = [
     path: '/aide',
     name: 'Aide',
     component: Aide
+    
+  },
+  {
+    path: '/inscription',
+    name: 'Inscription',
+    component: Inscription
     
   },
   {

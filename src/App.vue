@@ -30,6 +30,7 @@
       <router-link class="my-link" to="/">Accueil</router-link> 
       <router-link class="my-link" to="/aide">Aide</router-link>
       <router-link class="my-link" to="/reglages">Réglages</router-link>
+      <router-link class="my-link" to="/inscription">Inscription</router-link>
       <router-link class="my-link" to="/moncompte">Mon compte</router-link>
     </v-app-bar>
 
@@ -63,6 +64,7 @@ export default {
   color: #fff!important;
   padding: 0 10px;
   text-decoration: none;
+  font-size: 16px;
 }
 
 
