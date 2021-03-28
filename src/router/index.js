@@ -14,37 +14,31 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-    
   },
   {
     path: '/aide',
     name: 'Aide',
     component: Aide
-    
   },
   {
     path: '/inscription',
     name: 'Inscription',
     component: Inscription
-    
   },
   {
     path: '/connexion',
     name: 'Connexion',
     component: Connexion
-    
   },
   {
     path: '/moncompte',
     name: 'Moncompte',
     component: Moncompte
-    
   },
   {
     path: '/deconnexion',
     name: 'Deconnexion',
     component: Deconnexion
-    
   },
   {
     path: '/reglages',
