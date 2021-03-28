@@ -1,7 +1,7 @@
 <template>
   <div class="home">
  
-    <HelloWorld msg="Bienvenue sur mon site"/>
+    <HelloWorld :msg="toto"/>
   </div>
 </template>
 
@@ -13,6 +13,10 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
-  }
+  },
+  data: () => ({
+      toto: "bienvenue sur mon site"
+      
+    }),
 }
 </script>

@@ -2,8 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Aide from '../views/Aide.vue'
-import Moncompte from '../views/Moncompte.vue'
+import Connexion from '../views/Connexion.vue'
 import Inscription from '../views/Inscription.vue'
+import Moncompte from '../views/Moncompte.vue'
+import Deconnexion from '../views/Deconnexion.vue'
 
 Vue.use(VueRouter)
 
@@ -27,9 +29,21 @@ const routes = [
     
   },
   {
+    path: '/connexion',
+    name: 'Connexion',
+    component: Connexion
+    
+  },
+  {
     path: '/moncompte',
     name: 'Moncompte',
     component: Moncompte
+    
+  },
+  {
+    path: '/deconnexion',
+    name: 'Deconnexion',
+    component: Deconnexion
     
   },
   {

@@ -31,13 +31,14 @@
       <router-link class="my-link" to="/aide">Aide</router-link>
       <router-link class="my-link" to="/reglages">Réglages</router-link>
       <router-link class="my-link" to="/inscription">Inscription</router-link>
+      <router-link class="my-link" to="/connexion">Connexion</router-link>
       <router-link class="my-link" to="/moncompte">Mon compte</router-link>
+      <router-link class="my-link" to="/deconnexion">Deconnexion</router-link>
     </v-app-bar>
 
     <v-main>
-     <router-view/>
+      <router-view/>
     </v-main>
-
 
   </v-app>
 </template>
@@ -47,9 +48,7 @@
 
 export default {
   name: 'App',
-
   components: {
-   
   },
 
   data: () => ({
