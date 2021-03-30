@@ -27,13 +27,18 @@
 
       <v-spacer></v-spacer>
 
-      <router-link class="my-link" to="/">Accueil</router-link> 
-      <router-link class="my-link" to="/aide">Aide</router-link>
-      <router-link class="my-link" to="/reglages">Réglages</router-link>
-      <router-link class="my-link" to="/inscription">Inscription</router-link>
-      <router-link class="my-link" to="/connexion">Connexion</router-link>
-      <router-link class="my-link" to="/moncompte">Mon compte</router-link>
-      <router-link class="my-link" to="/deconnexion">Deconnexion</router-link>
+      <template v-if="!isConnected">  
+        <router-link class="my-link" to="/">Accueil</router-link> 
+        <router-link class="my-link" to="/aide">Aide</router-link>
+        <router-link class="my-link" to="/inscription">Inscription</router-link>
+        <router-link class="my-link" to="/connexion">Connexion</router-link>
+      </template>
+
+      <template v-if="isConnected">    
+        <router-link class="my-link" to="/moncompte">{{getUser.displayName}}</router-link>
+        <router-link class="my-link" to="/reglages">Réglages</router-link>
+        <router-link class="my-link" to="/deconnexion">Deconnexion</router-link>
+      </template>
     </v-app-bar>
 
     <v-main>
@@ -44,16 +49,24 @@
 
 <script>
 
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
   components: {
   },
-
   data: () => ({
     //
   }),
-};
+  computed: {
+    ...mapGetters([
+      'isConnected',
+      'getUser'
+    ]),
+  },
+ 
+}
+
 </script>
 
 <style lang="scss">

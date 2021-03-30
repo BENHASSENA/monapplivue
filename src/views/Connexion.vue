@@ -1,4 +1,3 @@
-//////////////////////////  HTML  ////////////////////////
 <template>
   <div>
     <h1>Connexion</h1>
@@ -30,11 +29,12 @@
   </div>
 </template>
 
-//////////////////////////  SCRIPT  ////////////////////////
+
 
 <script>
 
 import firebase from "firebase";
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'Connexion',
@@ -48,13 +48,22 @@ export default {
     }),
   // methods réunit toutes les fonctions
   methods: {
+    // Récupere toutes les fonctions du store et dans mutations
+    ...mapMutations([
+      // Ici je permet d'utiliser setUser à la ligne 66
+      'setUser'
+    ]),
     signInWithEmailAndPassword(){
       console.log('hello')
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         .then((userCredential) => {
-          // Signed in
+          // Je créé la variable user dans laquelle se trouve l'utilisateur
           var user = userCredential.user;
           console.log(user);
+          // J'utilise la fonction setUser (qui se situe dans le store, dans mutation ) 
+          // grace au mapMutation placé au début des methods et à l'import de {mapMutation}
+          // Et je passe en parametre la variable user situé à la ligne 62
+          this.setUser(user);
           //sert pour faire la redirection vers la page mon compte
           this.$router.push({
             name:'Moncompte',
@@ -75,7 +84,7 @@ export default {
 
 </script>
 
-//////////////////////////  CSS  ////////////////////////
+
 
 <style lang="scss">
 .theme--light.v-application{

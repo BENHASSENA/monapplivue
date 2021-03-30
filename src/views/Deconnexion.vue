@@ -1,5 +1,3 @@
-//////////////////////////  HTML  ////////////////////////
-
 <template>
   <div>
     <h1>Déconnexion</h1>
@@ -8,19 +6,21 @@
       elevation="4"
       large
       x-large
+      @click="signOut"
     >
-    <router-link class="my-link" to="/">Déconnexion</router-link> 
+    deconnexion
     </v-btn>
     </div>
 
   </div>
 </template>
 
-//////////////////////////  SCRIPT  ////////////////////////
+
 
 <script>
 
-// import firebase from "firebase";
+import firebase from "firebase";
+import { mapMutations } from 'vuex'
 
 
 export default {
@@ -34,19 +34,31 @@ export default {
       password: '',
     }),
   methods: {
-      // signOut(){
-      // firebase.auth().signOut().then(() => {
-      //         // Sign-out successful.
-      //       }).catch((error) => {
-      //         // An error happened.
-      //       });
-      //  }
-     }
+    ...mapMutations([
+      'setUser'
+    ]),
+    signOut(){
+      firebase.auth().signOut()
+        .then(() => {
+            // Sign-out successful.
+          this.setUser(null);
+          console.log('coucou');
+          // sert pour faire la redirection une fois le setUser à null
+          this.$router.push({
+            name:'Home',
+          })
+        })
+        .catch((error) => {
+          console.log(error);
+          // An error happened.
+        });
+    }
+  }
 }
 
 </script>
 
-//////////////////////////  CSS  ////////////////////////
+
 
 <style lang="scss">
 .theme--light.v-application{
