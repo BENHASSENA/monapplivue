@@ -3,13 +3,14 @@
     <h1>Bienvenue {{getUser.displayName}}</h1>
     <v-text-field class="content"
     v-model="valueA"
-    type="number"
     >
+    </v-text-field>
+    <v-text-field>
 
     </v-text-field>
+
     <v-text-field class="content"
     v-model="valueB"
-    type="number"
     > 
        
     </v-text-field>
@@ -115,8 +116,24 @@ export default {
   methods:{
     calculer(){
       console.log("coucou");
-      console.log(parseInt(this.valueA)+parseInt(this.valueB));
+      var valueC = 20;
+      this.monCalcul(valueC);
+      var maVariable= 10;
+      this.monCalcul(maVariable);
+      this.monSuperCalcul(valueC,maVariable);
+      if(parseInt(this.valueA) > parseInt(this.valueB)){
+        this.monCalcul(this.valueA);
+      }
+      else{
+        this.monSuperCalcul(this.valueA,this.valueB);
+      }
     },
+    monCalcul(toto){
+      console.log("mon resultat = "+ toto);
+    },
+    monSuperCalcul(tata, titi){
+      console.log("mon super resultat = "+ (tata - titi));
+    }
   }   
 }
 

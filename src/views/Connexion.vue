@@ -42,6 +42,7 @@ export default {
       name: '',
       email: '',
       password: '',
+      todos: [],
     }),
   // methods réunit toutes les fonctions
   methods: {
@@ -61,10 +62,13 @@ export default {
           // grace au mapMutation placé au début des methods et à l'import de {mapMutation}
           // Et je passe en parametre la variable user situé à la ligne 62
           this.setUser(user);
+
+          console.log(db);
           //sert pour faire la redirection vers la page mon compte
           this.$router.push({
             name:'Moncompte',
           })
+
         })
         .catch((error) => {
           var errorCode = error.code;
