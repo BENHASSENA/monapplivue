@@ -3,6 +3,7 @@
     <h1>Bienvenue {{getUser.displayName}}</h1>
     <v-text-field class="content"
     v-model="valueA"
+    type ="number"
     >
     </v-text-field>
     <v-text-field>
@@ -11,6 +12,7 @@
 
     <v-text-field class="content"
     v-model="valueB"
+    type ="number"
     > 
        
     </v-text-field>
