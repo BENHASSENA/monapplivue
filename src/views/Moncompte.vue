@@ -1,30 +1,30 @@
 <template>
-  <div>
+  <div >
     <h1>Bienvenue {{getUser.displayName}}</h1>
-    
-    <v-input
-      id="valeurA"
-      success
-      disabled
+    <v-text-field class="content"
+    v-model="valueA"
+    type="number"
     >
-    {{valueA}}
-    </v-input>
-    <v-input
-      id="valeurB"
-      success
-      disabled
-    >
-    {{valueB}}
-    </v-input>
 
-    <v-btn class="my-btn"
+    </v-text-field>
+    <v-text-field class="content"
+    v-model="valueB"
+    type="number"
+    > 
+       
+    </v-text-field>
+
+    <div class="content">
+      <v-btn class="my-btn"
       elevation="4"
       large
       x-large
       @click="calculer"
-    >
-    Calculer
-    </v-btn>
+      >
+      Calculer
+      </v-btn>
+    </div>
+    
 
     <v-card>
         <v-card-title>
@@ -53,10 +53,8 @@ export default {
   name: 'Moncompte',
   data () {
     return {
-      input: {
-        valueA: 2,
-        valueB:4,
-      },
+      valueA: '',
+      valueB: '',
       search: '',
       headers: [
           { 
@@ -115,11 +113,10 @@ export default {
     ]),
   },
   methods:{
-    calculer(valueA, valueB){
+    calculer(){
       console.log("coucou");
-      return valueA + valueB;
-    }
-
+      console.log(parseInt(this.valueA)+parseInt(this.valueB));
+    },
   }   
 }
 

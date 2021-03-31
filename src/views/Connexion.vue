@@ -38,9 +38,6 @@ import { mapMutations } from 'vuex';
 
 export default {
   name: 'Connexion',
-  components: {
-
-  },
   data: () => ({
       name: '',
       email: '',
@@ -68,7 +65,6 @@ export default {
           this.$router.push({
             name:'Moncompte',
           })
-          // ...
         })
         .catch((error) => {
           var errorCode = error.code;

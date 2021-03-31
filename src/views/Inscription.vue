@@ -1,5 +1,3 @@
-//////////////////////////  HTML  ////////////////////////
-
 <template>
   <div>
   <h1>Inscription</h1>
@@ -30,7 +28,6 @@
   </div>
 </template>
 
-//////////////////////////  SCRIPT  ////////////////////////
 
 <script>
 
@@ -46,30 +43,29 @@ import firebase from "firebase";
       email: '',
       password: '',
     }),
-     methods: {
-      submit() {
-        firebase
-          .auth()
-          .createUserWithEmailAndPassword(this.email, this.password)
-          .then(data => {
-            console.log(data.user);
-            data.user
-              .updateProfile({
-                displayName: this.name
-              })
-              .then(() => {});
-          })
-          .catch(err => {
-            this.error = err.message;
-          });
-      },      
-     }
+      methods: {
+        submit() {
+          firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.email, this.password)
+            .then(data => {
+              console.log(data.user);
+              data.user
+                .updateProfile({
+                  displayName: this.name
+                })
+                .then(() => {});
+            })
+            .catch(err => {
+              this.error = err.message;
+            });
+        },      
+      }
 }
 
 
 </script>
 
-//////////////////////////  CSS  ////////////////////////
 
 <style lang="scss">
 

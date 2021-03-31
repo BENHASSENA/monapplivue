@@ -40,9 +40,9 @@ export default {
     signOut(){
       firebase.auth().signOut()
         .then(() => {
-            // Sign-out successful.
+          // Sign-out successful.
           this.setUser(null);
-          console.log('coucou');
+            console.log('coucou');
           // sert pour faire la redirection une fois le setUser à null
           this.$router.push({
             name:'Home',
